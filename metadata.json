@@ -1,0 +1,6 @@
+{
+  "name": "Plano Bahia Prev - Quiz Interativo",
+  "description": "Descubra qual plano de assistência familiar Bahia Prev combina mais com você e sua família em menos de 1 minuto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

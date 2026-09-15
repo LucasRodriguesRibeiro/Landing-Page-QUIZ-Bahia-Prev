@@ -1,0 +1,567 @@
+<main class="min-h-screen bg-slate-100 flex flex-col items-center justify-start selection:bg-red-500 selection:text-white">
+  <!-- Mobile-first Container Frame -->
+  <div class="w-full max-w-md bg-[#F8FAFD] min-h-screen sm:min-h-[92vh] sm:my-4 sm:rounded-3xl sm:shadow-xl flex flex-col justify-between overflow-hidden relative border-x sm:border border-slate-200/80">
+    
+    <!-- TOP HEADER WITH BRAND IDENTITY (Navy + Red curve accent + Family visual) -->
+    <header class="relative bg-gradient-to-b from-[#06132D] via-[#091B42] to-[#0D2456] text-white pt-5 pb-7 px-5 overflow-hidden select-none">
+      
+      <!-- Ambient light effect -->
+      <div class="absolute -top-10 -right-10 w-44 h-44 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+      <!-- Header Content Bar -->
+      <div class="relative z-10 flex items-center justify-between gap-2">
+        <!-- Official Logo & Tagline -->
+        <app-bahia-logo [size]="'sm'" [withTagline]="true" />
+
+        <!-- Smiling Family Visual Crop (Blends into Navy Canvas) -->
+        <div class="relative w-28 h-20 sm:w-32 sm:h-22 rounded-xl overflow-hidden shadow-inner flex-shrink-0 border border-blue-400/20 bg-blue-950/40">
+          <img
+            src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80"
+            alt="Família protegida Bahia Prev"
+            class="w-full h-full object-cover object-center opacity-85 mix-blend-lighten"
+            referrerpolicy="no-referrer"
+          />
+          <!-- Gradient overlay on family image to blend with navy -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#091B42] via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#091B42]/70 via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Decorative Curved Wave Transition with Red Brand Accent -->
+      <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
+        <svg
+          class="relative block w-full h-6 text-[#F8FAFD]"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <!-- Red accent curve -->
+          <path
+            d="M0,0 C300,90 800,10 1200,80 L1200,120 L0,120 Z"
+            fill="#E31B23"
+            opacity="0.95"
+          ></path>
+          <!-- Content background curve covering it slightly -->
+          <path
+            d="M0,20 C320,110 820,30 1200,100 L1200,120 L0,120 Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </header>
+
+    <!-- MAIN BODY AREA (SCREENS) -->
+    <div class="flex-1 flex flex-col px-5 pt-3 pb-8 relative z-10">
+
+      <!-- ======================================================== -->
+      <!-- SCREEN 1: TELA INICIAL (INTRODUÇÃO)                      -->
+      <!-- ======================================================== -->
+      @if (currentScreen() === 'intro') {
+        <section class="flex-1 flex flex-col justify-between fade-enter">
+          
+          <div class="pt-2">
+            <!-- Trust Chip -->
+            <div class="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200/70 text-[#091B42] px-3 py-1 rounded-full text-xs font-semibold mb-4">
+              <mat-icon class="text-sm text-[#E31B23]">favorite</mat-icon>
+              <span>Assistência Familiar & Benefícios em Vida</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-2xl sm:text-[26px] font-extrabold text-[#091B42] leading-tight tracking-tight">
+              Qual plano Bahia Prev combina com a sua família?
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+              Responda 5 perguntas rápidas e descubra qual opção de assistência familiar pode fazer mais sentido para você.
+            </p>
+
+            <!-- Value Highlights Grid -->
+            <div class="mt-6 space-y-2.5">
+              <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#091B42] flex items-center justify-center font-bold">
+                  <mat-icon class="text-lg">groups</mat-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-800">Proteção para quem você ama</p>
+                  <p class="text-[11px] text-slate-500">Planos com até 10 beneficiários e dependentes extras</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                <div class="w-8 h-8 rounded-lg bg-red-50 text-[#E31B23] flex items-center justify-center font-bold">
+                  <mat-icon class="text-lg">medical_services</mat-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-800">Benefícios odontológicos e saúde</p>
+                  <p class="text-[11px] text-slate-500">Limpeza, restaurações, extrações e telemedicina 24h</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
+                  <mat-icon class="text-lg">verified</mat-icon>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-800">Cuidado em vida, todos os dias</p>
+                  <p class="text-[11px] text-slate-500">Descontos reais em parceiros em todo o Estado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Bottom Section -->
+          <div class="mt-8 pt-4">
+            <button
+              type="button"
+              id="btn-start-quiz"
+              (click)="startQuiz()"
+              class="w-full py-4 px-6 bg-[#091B42] hover:bg-[#0B2558] text-white font-bold text-base rounded-full shadow-lg shadow-blue-950/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer border border-blue-900/30"
+            >
+              <span>COMEÇAR O QUIZ</span>
+              <mat-icon class="text-xl">arrow_forward</mat-icon>
+            </button>
+
+            <p class="text-center text-xs text-slate-500 mt-2.5 font-medium flex items-center justify-center gap-1">
+              <mat-icon class="text-sm text-slate-400">timer</mat-icon>
+              <span>Leva menos de 1 minuto.</span>
+            </p>
+          </div>
+        </section>
+      }
+
+      <!-- ======================================================== -->
+      <!-- SCREEN 2: QUIZ QUESTIONS (1 DE 5 ATÉ 5 DE 5)              -->
+      <!-- ======================================================== -->
+      @if (currentScreen() === 'question') {
+        <section class="flex-1 flex flex-col justify-between fade-enter">
+          <div>
+            
+            <!-- Progress Counter & Visual Bar -->
+            <div class="mb-5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600 mb-1.5">
+                <span class="text-[#091B42]">{{ progressNumber() }} de 5</span>
+                <span class="text-slate-400 font-normal">Passo a passo</span>
+              </div>
+
+              <!-- Segmented Progress Bar (5 Bars like in native mobile app) -->
+              <div class="grid grid-cols-5 gap-1.5 w-full">
+                @for (seg of [1, 2, 3, 4, 5]; track seg) {
+                  <div
+                    class="h-1.5 rounded-full transition-all duration-300"
+                    [class.bg-[#091B42]]="seg <= progressNumber()"
+                    [class.bg-slate-200]="seg > progressNumber()"
+                  ></div>
+                }
+              </div>
+            </div>
+
+            <!-- Question Number Badge -->
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 rounded-full bg-blue-100 text-[#091B42] flex items-center justify-center shadow-xs">
+                <mat-icon class="text-lg">{{ currentQuestion().icon }}</mat-icon>
+              </div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#091B42]">
+                {{ currentQuestion().badge }}
+              </span>
+            </div>
+
+            <!-- Question Title with Highlight -->
+            <h2 class="text-xl sm:text-[22px] font-bold text-slate-900 leading-snug tracking-tight mb-2">
+              @if (currentQuestionIndex() === 0) {
+                Pensando na sua família, <span class="text-[#091B42] font-black">quantas pessoas</span> você gostaria de incluir na sua proteção?
+              } @else if (currentQuestionIndex() === 1) {
+                Além da assistência familiar, <span class="text-[#091B42] font-black">quais desses benefícios</span> você gostaria de ter?
+              } @else if (currentQuestionIndex() === 2) {
+                Ter acesso à <span class="text-[#091B42] font-black">Telemedicina 24h</span> faria diferença para você e sua família?
+              } @else if (currentQuestionIndex() === 3) {
+                Quando você pensa em proteger sua família, <span class="text-[#091B42] font-black">o que é mais importante</span> para você?
+              } @else {
+                Se encontrássemos uma opção que combina com as necessidades da sua família e cabe no seu orçamento, <span class="text-[#091B42] font-black">você gostaria de conhecer?</span>
+              }
+            </h2>
+
+            <!-- Subtitle / Helper for Multiple Selection -->
+            @if (currentQuestion().subtitle) {
+              <p class="text-xs font-semibold text-slate-500 mb-4 flex items-center gap-1">
+                <mat-icon class="text-sm text-blue-600">info</mat-icon>
+                <span>{{ currentQuestion().subtitle }}</span>
+              </p>
+            }
+
+            <!-- OPTIONS LIST -->
+            <div class="space-y-2.5 mt-4" role="radiogroup">
+              @for (option of currentQuestion().options; track option.id) {
+                
+                <!-- SINGLE SELECTION (Questions 1, 3, 4, 5) -->
+                @if (!currentQuestion().isMultiple) {
+                  <button
+                    type="button"
+                    [id]="'opt-' + currentQuestionIndex() + '-' + option.id"
+                    (click)="selectSingleOption(option.id)"
+                    class="w-full text-left p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 cursor-pointer shadow-xs active:scale-[0.99]"
+                    [class.border-2]="isOptionSelected(option.id)"
+                    [class.border-[#091B42]]="isOptionSelected(option.id)"
+                    [class.bg-[#EAF2FC]]="isOptionSelected(option.id)"
+                    [class.text-[#091B42]]="isOptionSelected(option.id)"
+                    [class.font-semibold]="isOptionSelected(option.id)"
+                    [class.shadow-sm]="isOptionSelected(option.id)"
+                    [class.border-slate-200]="!isOptionSelected(option.id)"
+                    [class.bg-white]="!isOptionSelected(option.id)"
+                    [class.text-slate-800]="!isOptionSelected(option.id)"
+                    [class.hover:border-blue-300]="!isOptionSelected(option.id)"
+                  >
+                    <span class="text-sm sm:text-base leading-snug">{{ option.label }}</span>
+                    
+                    <!-- Radio circle indicator -->
+                    <div
+                      class="w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all"
+                      [class.border-[#091B42]]="isOptionSelected(option.id)"
+                      [class.bg-[#091B42]]="isOptionSelected(option.id)"
+                      [class.border-slate-300]="!isOptionSelected(option.id)"
+                      [class.bg-transparent]="!isOptionSelected(option.id)"
+                    >
+                      @if (isOptionSelected(option.id)) {
+                        <div class="w-2 h-2 rounded-full bg-white"></div>
+                      }
+                    </div>
+                  </button>
+                }
+
+                <!-- MULTIPLE SELECTION (Question 2) -->
+                @if (currentQuestion().isMultiple) {
+                  <button
+                    type="button"
+                    [id]="'opt-multi-' + option.id"
+                    (click)="toggleBenefit(option.id)"
+                    class="w-full text-left p-3.5 sm:p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between gap-3 cursor-pointer shadow-xs active:scale-[0.99]"
+                    [class.border-2]="isOptionSelected(option.id)"
+                    [class.border-[#091B42]]="isOptionSelected(option.id)"
+                    [class.bg-[#EAF2FC]]="isOptionSelected(option.id)"
+                    [class.text-[#091B42]]="isOptionSelected(option.id)"
+                    [class.font-semibold]="isOptionSelected(option.id)"
+                    [class.shadow-sm]="isOptionSelected(option.id)"
+                    [class.border-slate-200]="!isOptionSelected(option.id)"
+                    [class.bg-white]="!isOptionSelected(option.id)"
+                    [class.text-slate-800]="!isOptionSelected(option.id)"
+                    [class.hover:border-blue-300]="!isOptionSelected(option.id)"
+                  >
+                    <span class="text-sm leading-snug">{{ option.label }}</span>
+                    
+                    <!-- Checkbox indicator -->
+                    <div
+                      class="w-6 h-6 rounded-lg border-2 flex items-center justify-center flex-shrink-0 transition-all"
+                      [class.border-[#091B42]]="isOptionSelected(option.id)"
+                      [class.bg-[#091B42]]="isOptionSelected(option.id)"
+                      [class.text-white]="isOptionSelected(option.id)"
+                      [class.border-slate-300]="!isOptionSelected(option.id)"
+                      [class.bg-transparent]="!isOptionSelected(option.id)"
+                    >
+                      @if (isOptionSelected(option.id)) {
+                        <mat-icon class="text-base font-bold">check</mat-icon>
+                      }
+                    </div>
+                  </button>
+                }
+
+              }
+            </div>
+          </div>
+
+          <!-- QUESTION NAVIGATION BUTTONS -->
+          <div class="mt-8 pt-4 flex flex-col gap-2">
+            <!-- Next Button: Disabled until a valid option is chosen -->
+            <button
+              type="button"
+              id="btn-next-question"
+              (click)="nextQuestion()"
+              [disabled]="!isCurrentQuestionValid()"
+              class="w-full py-4 px-6 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              [class.bg-[#091B42]]="isCurrentQuestionValid()"
+              [class.hover:bg-[#0B2558]]="isCurrentQuestionValid()"
+              [class.text-white]="isCurrentQuestionValid()"
+              [class.shadow-blue-950/20]="isCurrentQuestionValid()"
+              [class.active:scale-[0.98]]="isCurrentQuestionValid()"
+              [class.bg-slate-300]="!isCurrentQuestionValid()"
+              [class.text-slate-500]="!isCurrentQuestionValid()"
+              [class.cursor-not-allowed]="!isCurrentQuestionValid()"
+              [class.opacity-70]="!isCurrentQuestionValid()"
+            >
+              @if (currentQuestionIndex() < 4) {
+                <span>PRÓXIMA</span>
+                <mat-icon class="text-xl">arrow_forward</mat-icon>
+              } @else {
+                <span>VER MEU RESULTADO</span>
+                <mat-icon class="text-xl">sparkles</mat-icon>
+              }
+            </button>
+
+            <!-- Back link -->
+            <button
+              type="button"
+              id="btn-back-question"
+              (click)="previousQuestion()"
+              class="w-full py-2 text-xs font-semibold text-slate-500 hover:text-[#091B42] flex items-center justify-center gap-1 cursor-pointer transition-colors"
+            >
+              <mat-icon class="text-sm">arrow_back</mat-icon>
+              <span>Voltar para pergunta anterior</span>
+            </button>
+          </div>
+        </section>
+      }
+
+      <!-- ======================================================== -->
+      <!-- SCREEN 3: ANALYZING / PROCESSING SCREEN                  -->
+      <!-- ======================================================== -->
+      @if (currentScreen() === 'analyzing') {
+        <section class="flex-1 flex flex-col items-center justify-center text-center py-10 fade-enter">
+          
+          <!-- Animated Spinner Logo Card -->
+          <div class="relative mb-6">
+            <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center animate-soft-pulse">
+              <div class="w-18 h-18 rounded-full bg-[#091B42] flex items-center justify-center text-white shadow-lg">
+                <mat-icon class="text-3xl text-white">manage_search</mat-icon>
+              </div>
+            </div>
+            <!-- Rotating Spinner Border -->
+            <div class="absolute inset-0 rounded-full border-4 border-transparent border-t-[#E31B23] animate-spin"></div>
+          </div>
+
+          <!-- Analyzing Heading -->
+          <h2 class="text-2xl font-black text-[#091B42] mb-2 tracking-tight">
+            Analisando suas respostas...
+          </h2>
+          <p class="text-sm text-slate-500 max-w-xs mb-8 leading-relaxed">
+            Estamos cruzando suas preferências com as coberturas e benefícios da Bahia Prev.
+          </p>
+
+          <!-- Step Progression Badges -->
+          <div class="w-full max-w-xs space-y-3 text-left">
+            <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs">
+              <mat-icon class="text-base text-emerald-600 font-bold">check_circle</mat-icon>
+              <span class="text-xs font-semibold text-slate-700">Tamanho da família verificado</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs transition-opacity duration-300"
+              [class.opacity-40]="analysisStep() < 2"
+              [class.opacity-100]="analysisStep() >= 2"
+            >
+              @if (analysisStep() >= 2) {
+                <mat-icon class="text-base text-emerald-600 font-bold">check_circle</mat-icon>
+              } @else {
+                <mat-icon class="text-base text-slate-400">hourglass_empty</mat-icon>
+              }
+              <span class="text-xs font-semibold text-slate-700">Calculando benefícios e telemedicina</span>
+            </div>
+
+            <div
+              class="flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200/80 shadow-xs transition-opacity duration-300"
+              [class.opacity-40]="analysisStep() < 3"
+              [class.opacity-100]="analysisStep() >= 3"
+            >
+              @if (analysisStep() >= 3) {
+                <mat-icon class="text-base text-emerald-600 font-bold">check_circle</mat-icon>
+              } @else {
+                <mat-icon class="text-base text-slate-400">hourglass_empty</mat-icon>
+              }
+              <span class="text-xs font-semibold text-slate-700">Identificando melhor custo-benefício</span>
+            </div>
+          </div>
+
+          <!-- Final Ready Message -->
+          @if (isReadyMessage()) {
+            <div class="mt-6 text-sm font-bold text-emerald-700 bg-emerald-50 px-4 py-2 rounded-full border border-emerald-200 slide-up flex items-center gap-1.5">
+              <mat-icon class="text-base">verified</mat-icon>
+              <span>Encontramos uma opção que pode combinar com você.</span>
+            </div>
+          }
+        </section>
+      }
+
+      <!-- ======================================================== -->
+      <!-- SCREEN 4: PERSONALIZED RESULT SCREEN (NO PRICES SHOWN)    -->
+      <!-- ======================================================== -->
+      @if (currentScreen() === 'result') {
+        <section class="flex-1 flex flex-col justify-between slide-up pt-1">
+          <div>
+            
+            <!-- Result Title Header -->
+            <div class="text-center mb-5">
+              <div class="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3.5 py-1 rounded-full text-xs font-bold mb-2.5">
+                <mat-icon class="text-sm text-emerald-600">verified</mat-icon>
+                <span>Quiz Concluído</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-black text-[#091B42] leading-tight">
+                Temos um plano perfeito para você e sua família!
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed px-2">
+                Com base nas respostas que você preencheu, nossa equipe identificou a proteção sob medida com todos os benefícios ideais para o seu perfil.
+              </p>
+            </div>
+
+            <!-- MAIN SUMMARY FORM CARD -->
+            <div class="bg-white rounded-3xl border-2 border-[#091B42] shadow-xl overflow-hidden relative">
+              
+              <!-- Card Top Header -->
+              <div class="bg-gradient-to-r from-[#06132D] via-[#091B42] to-[#0D2456] text-white p-4 sm:p-5 text-center relative">
+                <div class="inline-flex items-center gap-1.5 bg-white/15 px-3 py-1 rounded-full text-xs font-semibold text-blue-100 border border-white/20 mb-1">
+                  <mat-icon class="text-sm text-emerald-400">assignment_turned_in</mat-icon>
+                  <span>Formulário Preenchido</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-extrabold text-white mt-1">
+                  Resumo das suas respostas
+                </h3>
+                <p class="text-xs text-blue-200 mt-0.5">
+                  Estas informações já foram estruturadas para o atendente:
+                </p>
+              </div>
+
+              <!-- List of Questions & User Answers -->
+              <div class="p-4 sm:p-5 space-y-3.5">
+                
+                <!-- Q1 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#091B42] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                    1
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-semibold text-slate-500">Pessoas na proteção:</p>
+                    <p class="text-xs sm:text-sm font-bold text-[#091B42] mt-0.5">{{ answerLabels().q1 }}</p>
+                  </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#091B42] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                    2
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-semibold text-slate-500">Benefícios de interesse:</p>
+                    <p class="text-xs sm:text-sm font-bold text-[#091B42] mt-0.5 leading-snug">
+                      {{ answerLabels().q2.join(', ') }}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#091B42] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                    3
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-semibold text-slate-500">Acesso à Telemedicina 24h:</p>
+                    <p class="text-xs sm:text-sm font-bold text-[#091B42] mt-0.5">{{ answerLabels().q3 }}</p>
+                  </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#091B42] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                    4
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-semibold text-slate-500">O que é mais importante:</p>
+                    <p class="text-xs sm:text-sm font-bold text-[#091B42] mt-0.5">{{ answerLabels().q4 }}</p>
+                  </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#091B42] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                    5
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] font-semibold text-slate-500">Disponibilidade para conhecer:</p>
+                    <p class="text-xs sm:text-sm font-bold text-[#091B42] mt-0.5">{{ answerLabels().q5 }}</p>
+                  </div>
+                </div>
+
+                <!-- Reassuring Info Banner -->
+                <div class="mt-2 bg-[#F0F6FE] border border-blue-200 rounded-2xl p-3.5 flex items-start gap-2.5">
+                  <mat-icon class="text-blue-700 text-lg flex-shrink-0 mt-0.5">support_agent</mat-icon>
+                  <p class="text-xs text-slate-700 leading-relaxed">
+                    Clique no botão abaixo para conversar com a equipe da <strong class="text-[#091B42]">Bahia Prev</strong>. Suas respostas já vão pré-preenchidas para você receber uma proposta sob medida!
+                  </p>
+                </div>
+
+              </div>
+
+              <!-- Primary Action in Card -->
+              <div class="px-4 sm:px-5 pb-5 pt-1">
+                <button
+                  type="button"
+                  id="btn-whatsapp-cta"
+                  (click)="openWhatsApp()"
+                  class="w-full py-4 px-5 bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-black text-sm sm:text-base rounded-2xl shadow-lg shadow-emerald-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 cursor-pointer border border-emerald-500/40"
+                >
+                  <!-- WhatsApp SVG Icon -->
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>FALAR COM A BAHIA PREV</span>
+                </button>
+                <p class="text-center text-[11px] text-slate-500 mt-2.5 font-medium flex items-center justify-center gap-1">
+                  <mat-icon class="text-xs text-emerald-600">send</mat-icon>
+                  <span>Envia o formulário diretamente no WhatsApp oficial</span>
+                </p>
+                <p class="text-center text-[10px] text-slate-400 mt-0.5 font-normal">
+                  WhatsApp Oficial Bahia Prev: {{ quizService.WHATSAPP_DISPLAY }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Trust badge footer -->
+            <div class="mt-5 text-center">
+              <div class="flex items-center justify-center gap-4 text-slate-400 text-xs font-medium">
+                <span class="flex items-center gap-1">
+                  <mat-icon class="text-xs text-emerald-600">lock</mat-icon>
+                  <span>Ambiente Seguro</span>
+                </span>
+                <span>•</span>
+                <span class="flex items-center gap-1">
+                  <mat-icon class="text-xs text-blue-600">headset_mic</mat-icon>
+                  <span>Atendimento Humano</span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Refazer Quiz -->
+          <div class="mt-5 pt-1 pb-2 text-center">
+            <button
+              type="button"
+              id="btn-restart-quiz"
+              (click)="restartQuiz()"
+              class="text-xs text-slate-400 hover:text-slate-600 font-medium underline cursor-pointer"
+            >
+              Refazer o formulário com outras respostas
+            </button>
+          </div>
+        </section>
+      }
+
+    </div>
+
+    <!-- DECORATIVE FOOTER BRAND ACCENT (Navy + Red curve wave) -->
+    <footer class="relative w-full h-12 overflow-hidden pointer-events-none select-none">
+      <svg
+        class="absolute bottom-0 left-0 right-0 w-full h-12 text-[#06132D]"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <!-- Red curved accent strip matching Bahia Prev visual brand -->
+        <path
+          d="M0,70 C300,10 700,90 1200,30 L1200,45 C700,105 300,25 0,85 Z"
+          fill="#E31B23"
+        ></path>
+        <!-- Navy curve at the base -->
+        <path
+          d="M0,90 C350,30 800,100 1200,50 L1200,120 L0,120 Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </footer>
+
+  </div>
+</main>
