@@ -2,47 +2,45 @@
   <!-- Mobile-first Container Frame -->
   <div class="w-full max-w-md bg-[#F8FAFD] min-h-screen sm:min-h-[92vh] sm:my-4 sm:rounded-3xl sm:shadow-xl flex flex-col justify-between overflow-hidden relative border-x sm:border border-slate-200/80">
     
-    <!-- TOP HEADER WITH BRAND IDENTITY (Navy + Red curve accent + Family visual) -->
-    <header class="relative bg-gradient-to-b from-[#06132D] via-[#091B42] to-[#0D2456] text-white pt-5 pb-7 px-5 overflow-hidden select-none">
+    <!-- TOP HEADER WITH BRAND IDENTITY (Navy background + Seamless Family visual + Red curve accent) -->
+    <header class="relative bg-gradient-to-r from-[#011749] via-[#022368] to-[#043485] text-white pt-5 pb-10 px-4 overflow-hidden select-none min-h-[148px] flex items-center">
       
-      <!-- Ambient light effect -->
-      <div class="absolute -top-10 -right-10 w-44 h-44 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
-
-      <!-- Header Content Bar -->
-      <div class="relative z-10 flex items-center justify-between gap-2">
-        <!-- Official Logo & Tagline -->
-        <app-bahia-logo [size]="'sm'" [withTagline]="true" />
-
-        <!-- Smiling Family Visual Crop (Blends into Navy Canvas) -->
-        <div class="relative w-28 h-20 sm:w-32 sm:h-22 rounded-xl overflow-hidden shadow-inner flex-shrink-0 border border-blue-400/20 bg-blue-950/40">
-          <img
-            src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80"
-            alt="Família protegida Bahia Prev"
-            class="w-full h-full object-cover object-center opacity-85 mix-blend-lighten"
-            referrerpolicy="no-referrer"
-          />
-          <!-- Gradient overlay on family image to blend with navy -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[#091B42] via-transparent to-transparent"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-[#091B42]/70 via-transparent to-transparent"></div>
-        </div>
+      <!-- Seamless Family Background Visual (Integrated into top right of Navy Canvas) -->
+      <div class="absolute right-0 top-0 bottom-0 w-[62%] sm:w-[58%] h-full pointer-events-none overflow-hidden z-0">
+        <img
+          src="family-header.jpg"
+          alt="Família protegida Bahia Prev"
+          class="w-full h-full object-cover object-[65%_25%] opacity-90 filter contrast-[1.05]"
+        />
+        <!-- Seamless linear gradient mask fading left into solid navy -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#011749] via-[#011749]/70 to-transparent"></div>
+        <!-- Navy color tint overlay for unified visual styling -->
+        <div class="absolute inset-0 bg-[#022368]/25 mix-blend-color"></div>
+        <!-- Bottom gradient fade into header curve -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#011749] via-transparent to-transparent opacity-90"></div>
       </div>
 
-      <!-- Decorative Curved Wave Transition with Red Brand Accent -->
-      <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
+      <!-- Header Foreground Content Bar -->
+      <div class="relative z-10 flex items-center justify-between w-full">
+        <!-- Official Logo Badge & Tagline -->
+        <app-bahia-logo [size]="'sm'" [withTagline]="true" />
+      </div>
+
+      <!-- Decorative Curved Wave Transition with Red Brand Accent (Matches Image 2) -->
+      <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none z-10">
         <svg
-          class="relative block w-full h-6 text-[#F8FAFD]"
+          class="relative block w-full h-7 text-[#F8FAFD]"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          <!-- Red accent curve -->
+          <!-- Red accent stroke curve line -->
           <path
-            d="M0,0 C300,90 800,10 1200,80 L1200,120 L0,120 Z"
+            d="M0,42 C280,110 780,15 1200,75 L1200,120 L0,120 Z"
             fill="#E31B23"
-            opacity="0.95"
           ></path>
-          <!-- Content background curve covering it slightly -->
+          <!-- Main white container curve layer -->
           <path
-            d="M0,20 C320,110 820,30 1200,100 L1200,120 L0,120 Z"
+            d="M0,56 C290,120 790,28 1200,88 L1200,120 L0,120 Z"
             fill="currentColor"
           ></path>
         </svg>
